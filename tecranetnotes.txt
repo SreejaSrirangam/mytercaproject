@@ -1,0 +1,544 @@
+.NET:
+********************************************************************************************************************************************************************************************
+16/05/2022
+when type is unknown then object is used
+fixed memory allocation then value type;not fixed then refernece type
+by right skkji at project name then we add option and add new item //add classes
+/array->same datatype ;arraylist->different datatype
+conditional statements ->the statements which will check the conditions bwtween two values
+else if is the keyword in else if statement.
+foreach(var item in collections)
+            {
+
+            }
+foreach cannot be stopped until all items in colletion will complete.
+
+17/05/2022
+OOPS IN .NET:
+************
+class is a structure ,collection of method
+method is which will perform a particular task
+person is a real entity->object
+class anyname{
+accesspecifier returntype methodname(optn1 pm)->//optional parameters
+{code}
+}
+class are used for code reusability.
+classname objname=new classname();
+ex:
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+internal class classroom{                                                                      
+public void add(){
+int  x=78,y=89,z;
+z=x+y;//here + is used for addition.
+Console.WriteLine("Add is:"+z+"This is the final output");//here + is used for concatenation
+}
+}
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+return types:
+-------------
+ear->void,nose->int,char,...
+void->it will take input but it will not give output
+remaining return type->it will take input and  give output
+ex:
+...................................................................................................
+namespace xxx{
+class test{
+ public void add(){
+   int x=50,y=50,z;
+   z=x+y;
+   Console.WriteLine("Add is:"+z+"This is the final output");
+}
+public int sub(){
+   int x=50,y=50,z;
+   z=x-y;
+   Console.WriteLine("sub is:"+z+"This is the final output");
+   return z;
+}}
+class demo{
+static void Main(){
+Test obj =new Test();
+obj.add();
+int r=obj.sub();
+if(r==0){
+  Console.WriteLine("do this");
+}
+else{
+  Console.WriteLine("do that");
+}}}}
+.....................................................................................................
+static methods->no need to use classname 
+writeline->returntype void
+readline->returntype string->output can be used again
+ex:
+.......................................................
+namespace yyy{
+  class reuse{
+    static void Main(){
+       Test t =new Test();
+       t.add();
+}}}
+........................................................
+classes can also used static ,static classes should have static methods only
+static classes we will not create a object,so we need to have static methods only.
+constructors are same as java.
+constructor with parameters->explicit constr ;  remaining constr->default
+Inheritance://same as java
+-----------
+single->one parentand one child
+heri->parent-> multiple child
+multilevel-->grandparent->parent->child
+interface is used for multiple inheritance
+Access specifier:
+-----------------
+public->rtc bus;private->own mobile;protected->landline;internal->
+
+
+18/05/2022:
+sealed keyword
+sealed classes cannot be inherited
+sealed class demo1{
+}
+class demo2{
+}
+virtual methods can or cannot be overridden in child class->  != 100% overriddening->we can excute the methods using class
+virtual should be followed bby overridden keyword in child class ,then only the child class can be overridden.if not then it is behavior has normal method.
+we also use override keyowrd for overriddden.
+
+if class is abstract then it contains abstract methods->declared  with abstract keyword.abstract methods conatains only signature.. no body is declared.
+abstract methods are meant for overridden->100% overridden-> we cannot excute the methods using class
+non abstract methods in abstract class can be used by declaring child object.
+interface->only abstract methods 
+ex:
+................................................................
+naespace xxx{
+interface demointerface{
+  void add();
+  void sub();
+}  
+class child:demointerace{
+ public add(){
+}
+public sub(){}
+}
+}
+......................................................................
+***all abstract methods in interface will override.***
+runtime errors will terminate the excutation
+exceptional handling:
+--------------------
+finally can be excuted for excdptional cases and for non exceptional cases.
+partially->not complete
+partical used for classes in c#
+cannot create more than 1 class with same name,within a project.
+u can declare 2 or more classes with same name->can split partically class into different parts.
+all methods of diff files with same class name ca be accessed by single object in main method file.
+
+ex:
+namespace rrr{
+partial class Partical{
+//not complete
+}}
+delegates->like pointers->used to reference methods with some other object name
+create a delegate class with same signature.
+ex:
+public delegate void CallingMethod();
+namespace xxx{
+class t1{
+public static void add(){-->this has same signature as deelagte
+console.writeline("this is addition");
+}
+public static void div(int x){-->this has different signature as delegate
+console.writeline(x/2);
+}
+}
+class test{
+ static void Main(){
+  CallingMethod obj1=new CallingMethod(t1.add);
+obj1();
+
+}
+}
+class can be reusable only inside their particular project.-->used
+but by using class library we can do it.-->.dll(used for reusing),class-->.cs,console app-->.exe(excute not for reusing)(in .exe file we will have one.exe and remaining are .dll file)
+to reference that,
+synatax:
+using classlibraryname;
+24/05/2022::
+-----------
+SQL:
+****
+constraints:
+1.not null->will not allow null values
+CREATE TABLE TBL_NOTNULL{
+SNO INT NOT NULL
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL
+,ADDRESS VARCHAR(50)
+}
+SELECT * FROM TBL_NOTNULL
+INSERT INTO TBL_NOTNULL(SNO,NAME,EMAILID) VALUES(2,'SAM','SAM@YAHOO.COM')
+--------------------------------------------------------------------------------
+
+2.UNIQUE:->IT WILL NOT ALLOW DUPLIACTES
+CREATE TABLE TBL_UNIQUE{
+  SNO INT NOT NULL
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL Unique
+,ADDRESS VARCHAR(50)
+}
+-----------------------------------------------------------------------------------------
+3.check:->USED FOR CHECKING THE CONDITION 
+CREATE TABLE TBL_UNIQUE{
+  SNO INT NOT NULL
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL Unique
+, AGE 
+}
+---------------------------------------------------------------------------
+4.DEFAULT->BY DEFAULT IT WILL TAKE DEFAULT VALUE 
+CREATE TABLE TBL_DEFAULT{
+  SNO INT NOT NULL
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL Unique
+,ADDRESS VARCHAR(50) default 'hyd'
+}
+SELECT * FROM TBL_DEFAULT
+INSERT INTO TBL_DEFAULT(SNO,NAME,EMAILID) VALUES(2,'SAM','SAM@YAHOO.COM')
+-------------------------------------------------------------------------------------
+5.IDENTITY-> AUTO INCREMENTS
+CREATE TABLE TBL_IDENTITY{
+  SNO INT identity(1,1)
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL Unique
+,ADDRESS VARCHAR(50) default 'hyd'
+}
+SELECT * FROM TBL_IDENTITY
+INSERT INTO TBL_IDENTITY(SNO,NAME,EMAILID) VALUES(2,'SAM','SAM@YAHOO.COM')
+OUTPUT:1 SAM SAM@YAHOO.COM hyd
+------------------------------------------------------------------------------------
+6.PRIMARY KEY->COMBINATION OF UNIQUE AND NOT NULL,WE CAN LINK ANOTHER TABLES
+CREATE TABLE TBL_PK{
+  SNO INT primary key
+,NAME  VARCHAR(50) NOT NULL
+,EMAILID VARCHAR(50) NOT NULL Unique
+,ADDRESS VARCHAR(50) default 'hyd'
+}
+----------------------------------------------------------------------------------------------
+UPDATING THE DATA:
+SELECT * FROM TBL_STUDENTS
+UPDATE TBL_STUDENTS SET FEE=20000 ,ROLLNO='08J01A05D1' WHERE SNO=1
+------------------------------------------------------------------------------------------------------
+DELETE THE DATA:
+DELETE FROM TBL_STUDENTS WHERE SNO=1
+
+
+TRUNCATE ->USED FOR REMOVE ALL ROWS AND ALL INSTANCES ARE COMPLETELY REMOVED
+DROP->REMOVING STRUCTURE ALONG WITH DATA
+DELETE->USED TO DATA
+ALTER->MODIFY THE STRUCTURE OF THE TABLE
+NEW->ALTER TABLE TBL_NAME ADD COL_NAME TYPE
+REMOVE->ALTER TABLE TBL_NAME DROP COL_NAME
+CHARGING THE DATATYPE:
+ALTER TABLE TBL_NAME ALTER COLUMN ADDRESS NVARCHAR(100)
+TO ADD A CONSTRAINT:
+ALTER TABLE TBL_NAME ADD UNIQUE(fieldname)
+TO REMOVE A CONSTRAINT:
+ALTER TABLE TBL_NAME DROP CONSTRAINT CONSTRAINT_NAME
+ 
+CREATE->TO CREATE A STRUCTURE
+go to northwind and go to orderstable
+select * from orders
+select * from orders order by customerID asc
+select * from orders order by customerID desc
+select * from orders order by OrderDate asc
+select * from orders where ShipRegion is null(Or) not null->here we willnot use '='
+
+
+merging two queries:union all
+merging two queries without duplicates:union
+
+25/05/2022:
+-----------
+
+create table tbl_aadhar(
+aadharno int primary key,
+name varchar(50),
+dob date,
+address varchar(50)
+)
+create table tbl_bank(
+accno int 
+,username varchar(50)
+,bankname varchar(50)
+,aadharno int foreign key referencee tbl_aadhar(aadharno))
+
+create table tbl_voter(
+voterid int,
+votername varchar2(50)
+,
+
+.........................................................................................................................
+in joints,we need to have a common field may or maynot be primary key and foreign key but they need to be unique fields.
+joints :
+1.select tbl_aadhar.aadharno,name,dob,address,accno,username,bankname,voterid ,votername,doifrom tbl_aadhar 
+inner join tbl_bank on tbl_bank.aadharno=tbl_aadhar.aadharno
+inner join tbl_voter on tbl_voter.aadharno=tbl_aadhar.aadharno
+----------------------------------------------------------------------------
+2.select books.categoryid,books.name,categories.id,categories.name from books
+left join categories on books.categoryid=categories.id
+-----------------------------------------------------------------------------
+3.select books.categoryid,books.name,categories.id,categories.name from books
+full join categories on books.categoryid=categories.id
+
+................................................................................
+groupby clauses:
+--------------
+the field which has more than one duplicate value can be group
+ex:
+select job from emp group by job
+select job,sum(sal) from emp group by job
+.......................................................................
+rules/condition:
+1.select list must be in  groupby.
+select ename from emp group by job--->x(wrong)
+-------------------------------------------------------------
+2.if select list in not in group by then that field must use aggreate function
+select job,sal from emp group by job-->x(wrong)
+.....................................................................................
+subqueries:
+
+used when the values are unknown
+
+
+stored procedures and functions in sql:
+***************************************
+sp:
+*******
+**we can be store queries in sp permantly in database
+1.saving in sp
+2.can be reused the query (exec)
+3.used for security.mal=ke use of queries in between click event without exposing the data
+4.used called in frontend by button click event.
+5.sp_helptext is used to view the code in sp.and can be modified by altered keyword
+ex:
+sp_helptext sp_getallempdata
+6.drop a procedure from the database.ex:drop procedure sp_getallempdata
+7.we can create a procedure for ddl comments but they can be used only once but logically not used.
+8.we use dml and dql comments.
+syntax:
+---------**********************************************
+create procedure sp_name(optional parameters)
+as 
+begin
+(code)
+end
+-----------*********************************************
+create procedure sp_getallempdata
+as
+begin
+select empno,ename,job,hiredate,sal,(select dname from dept where dept.dno=emp.dno)
+from emp
+end
+
+exec sp_getallempdata
+***select  * from emp where empno=1001  -->for this we write a sp using parameter
+ex:
+-----------------------------------------------------
+create procedure sp_getallempdata_byid(@empno int)
+as
+begin
+select * from emp where empno=@empno
+end
+--------------------------------------------------------
+sp can allow multiple parameters:
+create procedure sp_getallempdata_hiredate(@fromdata date,@todate date)
+as
+begin
+select * from emp where hiredate between @fromdate and @todate
+
+exec sp_getallempdata_hiredate(01/01/1998,01/01/1999)
+---------------------------------------------------------------------
+
+functions:
+**********
+*sp are functions are similar but differ logically
+* functions can return a value but sp may return a value.
+*functions can be reused in procedure.like inplace of writing subqueries by function
+* functions can be called in sp.
+*in function,we only write dql comments because dql comments will return something(dql comment:select)
+ex:
+create function fn_getdname(@deptno int)
+returns varchar(50)
+as
+begin
+declare @getdname varchar(50)
+set @getdname=(select dname from dept where deptno=@deptno)
+return @getdname
+end
+
+select dbo.fn_getname(10)
+windowsapplication:
+------------------
+right click on review or grey part->properties->edit->rowheadermouse
+when we want the values of the data in rows to represent at they particular fields or labels then we will do
+
+for button:
+ex:private void button1_click(object sender,eventargs e){---->update
+ sqlconnection con=new sqlconnection("datasource=(local);inital catalog=db_vnr,intergrated security=true")
+  try{
+    con.Open();
+    SqlCommand cmd=new SqlCommand("Update tbl_users set name=@name,emailid=@emailid,password=@password,dob=@dob);
+    //cmd.commandtype.storeprocedure;
+    cmd.Parameters.Addwithvalue("@name",txtname.Text);
+    cmd.Parameters.Addwithvalue("@emailid",txtemail.Text);
+    cmd.Parameters.Addwithvalue("@password",txtpwd.Text);
+    cmd.Parameters.Addwithvalue("@dob",datetimepickerdob.Text);
+    cmd.Parameters.Addwithvalue("@salary",txtsal.Text);
+    cmd.Parameters.Addwithvalue("@userid",userid);
+    int x=cmd.exceutionnonquery();
+	if x>0{
+      messageBox.Show("Updated Successfully");
+	txtname.Text="";
+	txtemail.Text="";
+	txtpwd.Text="";
+	txtsal.Text="";
+	getdata();
+   }
+  else{
+      messagebox.show("updated is unsuccessful");e
+}
+	
+private void button2_click(object sender,eventargs e){---->update
+ sqlconnection con=new sqlconnection("datasource=(local);inital catalog=db_vnr,intergrated security=true")
+  try{
+    con.Open();
+    SqlCommand cmd=new SqlCommand("delete from  tbl_users where userid=@userid);
+    //cmd.commandtype.storeprocedure;
+    cmd.Parameters.Addwithvalue("@userid",userid);
+    int x=cmd.exceutionnonquery();
+	if x>0{
+      messageBox.Show("Updated Successfully");
+	txtname.Text="";
+	txtemail.Text="";
+	txtpwd.Text="";
+	txtsal.Text="";
+	getdata();
+   }
+  else{
+      messagebox.show("updated is unsuccessful");
+
+	
+}
+	
+formats to represent in database:
+1.all fields and all rows
+2.select fields and all rows
+3.particular row	
+4.particular columns
+5.particular cell
+
+excutereader->is used when command class is used and to to read a row-->data reader class 
+
+task:list od all columns names in frontend
+list of columns->dropdown list or combobox-->combobox keyword is used
+combobox has two paremeters
+combobox.displaymember="orderid";
+combobox.valuememeber="orderid";
+
+
+task:listing the data based on userid
+data adapter class is used for reading (all fields and all rows) without any condition
+command class is used for reading with any condition(all fields and one rows like that)
+for selecting a bulk od data with a condition-->we use both adapter and command class
+try{
+	con.Open();
+	sqlcommand cmd=new sqlcommand("select * from orderid where customerid
+	cmd.parameters.additionwithvalue("@customerid",
+	sqldataadapter da= new sqldataadaqter();
+	datatable dt=new dataTable();
+	da.SelectCommand=cmd;
+	da.Fill(dt);
+	dataGridView1.DataSource=dt;
+}
+
+exceutionnonquery()-->INTEGER datatype
+data table to store data in client machine.-->data table class-->stores multiple tables in table(connections of rows and columns)
+reading single cell value-->command class-->insert,update,delete operations.
+single cell-->scalar cell value
+excutereader->return type is sqldatareader->sqldata reader is to read a bulk of data using condition.
+reading single cell:
+-------------------
+methodname{
+try{
+ con.Open();
+sqlcommand cmd=new sqlcommand("select * from orders",con);
+cmd.ExeceuteScalar().ToString();
+label1.Text=res;
+}
+}
+executeScalar will return the first cell 
+dataset-->connection of multiple tables-->stores in different virtual tablesdat grid c
+DataSet ds=new DataSet();
+da.Fill(ds,"Orders");
+dataGridview1.DataSource=dt;
+
+HTML:
+********
+all about tags
+webpage-->it is a interface->collection of html tags which are deployed on server and accessed through browser.
+web applications-->collection of wedpages
+
+
+<caption>->tag is used for heading like giving name of a table.
+colspan-->is used merging the columns.
+rowspan-->is used merging the columns
+div--> it a block-->by default it is cover 100% width.
+to recover the password then we need to change the type password to text
+css:
+----
+1.Inline--personally desidning tag-->disadvantage->same code should be write multiple times
+2.Internal--><style>
+*tag
+*class
+*
+disadvantage->same design
+<table class="table1 table2">
+3.External
+databound controls:-.for bulk dataq
+dat grid view
+in web application we used constructor
+
+page_load->is the protected method
+
+VALIDATION:
+for checking empty textbox->RequiredFieldValidator
+3 parts
+controltovalidation,errormessage,forecolor
+range validator->checka the range b/w min and max values
+controltovalidation,errormessage,forecolor,maximum value ,minimum value
+
+compare validator->checking one textbox value with other textbox
+controltovalidation,errormessage,forecolor,control to compare
+
+regular expression-->
+moblie number-->10 digits
+url->https://
+email id->.com or .in
+controltovalidation,errormessage,forecolor,validationexpression
+
+custom validator->we can write own logic
+a part of page should be alter then we use scriptmanager
+
+session in asp.net:
+***************
+a variable is used for holding the data
+login person name  and login time
+linkbutton-> it is a button but we can write a logic ,this is used for logout and remaining the session.
+session id->used to know about the session.
+sessiontimeout property
+data in the database in not stored in plain format
+we used system.web.security->formauthorization
+sha2->security hashing algorithm
+
+send otp while getting login:
